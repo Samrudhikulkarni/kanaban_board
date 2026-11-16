@@ -1,0 +1,20 @@
+.note{position:relative;color:#2b2a33;padding:26px 14px 12px;margin-bottom:20px;cursor:grab;transform-style:preserve-3d;transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) rotate(var(--r,0deg));transition:transform .25s,box-shadow .25s;box-shadow:3px 6px 0 rgba(0,0,0,.14),8px 16px 24px rgba(0,0,0,.22);word-break:break-word}
+.note:hover{box-shadow:5px 10px 0 rgba(0,0,0,.12),14px 26px 32px rgba(0,0,0,.28)}
+.note.dragging{opacity:.45}
+.note h5{font-family:Caveat,cursive;font-size:1.6rem;font-weight:700;line-height:1.05;transform:translateZ(20px)}
+.note p{transform:translateZ(12px)}
+.note .meta,.note .time{transform:translateZ(14px)}
+.note .pinned{position:absolute;top:6px;right:10px;font-size:19px;color:#d6342a;transform:translateZ(24px) rotate(35deg);filter:drop-shadow(1px 2px 1px rgba(0,0,0,.3))}
+.s2 .pinned{color:#fff}
+.s0{background:#f9dd7a repeating-linear-gradient(transparent 0 17px,rgba(0,0,0,.08) 17px 18px)}
+.s0:before{content:"";position:absolute;top:-10px;left:50%;width:84px;height:24px;margin-left:-42px;background:rgba(214,170,90,.85);transform:rotate(-2deg) translateZ(8px);box-shadow:0 2px 3px rgba(0,0,0,.2)}
+.s1{background:#bde0f6;padding-top:30px}
+.s1:before{content:"";position:absolute;top:-6px;left:8px;right:8px;height:14px;background:radial-gradient(circle at 50% 50%,#fff 0 3px,#6b7480 3px 4px,transparent 5px) 0 0/22px 14px repeat-x}
+.s2{background:#df5f55 radial-gradient(rgba(0,0,0,.25) 1px,transparent 1.5px) 0 0/10px 10px;color:#fff}
+.s2:before{content:"";position:absolute;top:7px;left:10px;right:10px;height:8px;background:radial-gradient(circle,#fff6 0 3px,transparent 3.5px) 0 0/16px 8px repeat-x}
+.s2:after{content:"";position:absolute;right:0;bottom:0;width:30px;height:30px;background:linear-gradient(135deg,transparent 50%,#b13a35 50%);box-shadow:-2px -2px 4px rgba(0,0,0,.2);pointer-events:none}
+.s3{background:#fffaf4 repeating-linear-gradient(transparent 0 19px,rgba(90,100,220,.4) 19px 20px);border-left:2px solid #e66}
+.s3:before{content:"📎";position:absolute;top:-10px;left:12px;font-size:22px;transform:translateZ(14px)}
+.ib{border:0;width:30px;height:30px;flex:none;border-radius:9px;background:rgba(255,255,255,.65);color:#333;display:grid;place-items:center;transition:.15s}
+.ib:hover{background:#fff;transform:translateY(-2px)}
+.ib.on{background:#fff;color:#d6342a}.ib.bell.on{color:#e08a00}
