@@ -62,14 +62,16 @@ function remindToast(){
   bootstrap.Toast.getOrCreateInstance(document.getElementById("toast"), {delay:9000}).show();
 }
 
-if (user) {
+Promise.all([window.sidebarReady, window.headerReady]).then(function(){
+  if (!user) return;
+
   var first = user.name.split(" ")[0], hr = new Date().getHours();
   document.getElementById("hello").textContent = (hr < 12 ? "Good morning" : hr < 17 ? "Good afternoon" : "Good evening") + ", " + first + " 👋";
   document.getElementById("who").textContent = user.name;
   document.getElementById("avatar").textContent = first.charAt(0).toUpperCase();
 
   tasks = get("sb_tasks_" + user.email, null);
-  if (!tasks){ tasks = seedTasks(); save(); }
+  if (!tasks){ tasks = []; save(); }
 
   document.querySelectorAll(".nv").forEach(function(b){ b.onclick = function(){ view = b.dataset.view; render(); }; });
   document.getElementById("filters").onclick = function(e){ var f = e.target.dataset.f; if (f){ filter = f; render(); } };
@@ -90,10 +92,23 @@ if (user) {
     if (d.pin) tasks.forEach(function(t){ if (t.id == d.pin) t.pin = !t.pin; });
     if (d.bell) tasks.forEach(function(t){ if (t.id == d.bell) t.remind = !t.remind; });
     if (d.pin || d.bell){ save(); render(); }
-    if (d.del && confirm("Delete this note?")){ tasks = tasks.filter(function(t){ return t.id != d.del; }); save(); render(); }
+    if (d.del) {
+      var deleteId = d.del;
+      NotiquePopup.confirm("Are you sure you want to delete this note?", {
+        title: "Delete note",
+        confirmText: "Delete"
+      }).then(function(confirmed){
+        if (!confirmed) return;
+        tasks = tasks.filter(function(t){ return t.id != deleteId; });
+        save();
+        render();
+      });
+    }
     if (d.ed) openModal(+d.ed);
   });
 
   initTilt(board); initDragDrop(board); initCalendar();
   render(); remindToast();
-}
+}, function(error){
+  console.error("The dashboard layout could not be loaded.", error);
+});

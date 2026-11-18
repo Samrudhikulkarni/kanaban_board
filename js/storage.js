@@ -16,15 +16,6 @@ function esc(s){ var d = document.createElement("div"); d.textContent = s; retur
 function iso(n){ var d = new Date(); d.setDate(d.getDate()+n); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
 function fmt(s){ return s ? new Date(s+"T00:00").toLocaleDateString(undefined,{day:"numeric",month:"short"}) : "—"; }
 
-function seedTasks(){
-  return [
-    {id:1,remind:true,title:"Design login page",desc:"Sketch the register and login forms.",start:iso(-2),due:iso(1),status:"todo",style:0,tags:["Important"]},
-    {id:2,pin:true,remind:true,title:"Build kanban board",desc:"Four columns with drag and drop.",start:iso(-1),due:iso(5),status:"progress",style:1,tags:["Feature","Urgent"]},
-    {id:3,title:"Set up project",desc:"Folders, HTML, CSS and JS files.",start:iso(-6),due:iso(-3),status:"done",style:3,tags:[]},
-    {id:4,title:"Old idea: dark mode v2",desc:"Dropped for now.",start:iso(-8),due:iso(-4),status:"cancel",style:2,tags:["Pending"]}
-  ];
-}
-
 /* Apply saved (or system) Bootstrap theme on every page */
 (function(){
   var t = get("sb_theme", matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light");

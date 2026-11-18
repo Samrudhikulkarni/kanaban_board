@@ -11,4 +11,5 @@ Built with plain HTML, CSS and JavaScript, plus Bootstrap 5.
 - Month calendar: tick notes done, drag to reschedule
 - Pin notes and set reminders
 - Tag filters, search, progress bar, light/dark theme
+- Reusable, theme-matched confirmation and alert popups
 
