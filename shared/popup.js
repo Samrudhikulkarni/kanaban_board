@@ -2,6 +2,7 @@
 (function(){
   var activeResolve = null;
   var modal, title, message, confirmButton, cancelButton;
+  var logoSrc = new URL("../assets/notique-logo.png", document.currentScript.src).href;
 
   function initialize(){
     if (modal) return;
@@ -10,7 +11,7 @@
     container.innerHTML =
       '<div class="modal fade notique-popup" id="notiquePopup" tabindex="-1" aria-labelledby="notiquePopupTitle" aria-describedby="notiquePopupMessage" aria-hidden="true">'
       + '<div class="modal-dialog modal-dialog-centered"><div class="modal-content">'
-      + '<div class="modal-header border-0 pb-0"><span class="popup-icon"><i class="bi bi-pin-angle-fill"></i></span>'
+      + '<div class="modal-header border-0 pb-0"><span class="popup-icon"><img class="popup-logo" alt=""></span>'
       + '<button type="button" class="btn-close ms-auto" data-popup-cancel aria-label="Close"></button></div>'
       + '<div class="modal-body pt-3"><h5 class="modal-title fw-bold mb-2" id="notiquePopupTitle"></h5>'
       + '<p class="mb-0" id="notiquePopupMessage"></p></div>'
@@ -21,6 +22,7 @@
     document.body.appendChild(container.firstChild);
 
     modal = document.getElementById("notiquePopup");
+    modal.querySelector(".popup-logo").src = logoSrc;
     title = document.getElementById("notiquePopupTitle");
     message = document.getElementById("notiquePopupMessage");
     confirmButton = modal.querySelector("[data-popup-confirm]");

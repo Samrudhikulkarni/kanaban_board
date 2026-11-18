@@ -9,10 +9,9 @@
 .notique-popup .modal-body{padding:18px 24px}
 .notique-popup .modal-footer{padding:0 24px 22px}
 .notique-popup .popup-icon{
-  width:42px;height:42px;display:grid;place-items:center;
-  border-radius:13px;background:var(--accent);color:#fff;font-size:20px;
-  box-shadow:2px 3px 0 rgba(0,0,0,.12);transform:rotate(-4deg)
+  width:68px;height:52px;display:block
 }
+.notique-popup .popup-logo{width:100%;height:100%;object-fit:contain}
 .notique-popup .modal-title{color:var(--ink)}
 .notique-popup #notiquePopupMessage{color:var(--bs-secondary-color);line-height:1.6}
 .notique-popup .btn-popup{

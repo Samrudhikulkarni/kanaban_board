@@ -1,4 +1,4 @@
-# 📌 Notique
+# Notique
 
 A 3D sticky-note Kanban board with a calendar, pins and reminders.
 Built with plain HTML, CSS and JavaScript, plus Bootstrap 5.
